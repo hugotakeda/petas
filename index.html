@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petas Crew</title>
+    <style>
+        /* Estilização Geral */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000; /* Fundo preto para destaque */
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Container do Conteúdo */
+        .container {
+            text-align: center;
+            z-index: 1;
+        }
+
+        /* Estilo da Imagem */
+        .crew-image {
+            max-width: 80%;
+            max-height: 60vh;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+        }
+
+        /* Estilo do Texto */
+        h1 {
+            font-size: 3rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        /* Botão de Overlay (Necessário para o som funcionar) */
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        #overlay p {
+            font-size: 1.5rem;
+            border: 1px solid white;
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        #overlay p:hover {
+            background: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="overlay">
+        <p>CLIQUE PARA ENTRAR</p>
+    </div>
+
+    <div class="container">
+        <img src="imagem.jpg" alt="Petas Crew" class="crew-image">
+        <h1>Petas Crew</h1>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+    </audio>
+
+    <script>
+        const overlay = document.getElementById('overlay');
+        const music = document.getElementById('bg-music');
+
+        overlay.addEventListener('click', () => {
+            music.play(); // Toca a música
+            overlay.style.display = 'none'; // Esconde a tela de entrada
+        });
+    </script>
+
+</body>
+</html>
